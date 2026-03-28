@@ -3,117 +3,128 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VASANT GAVDE</title>
+<title>VARDAAN CRICKET</title>
+
+<!-- ✅ Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '1622227439023483');
+fbq('track', 'PageView');
+</script>
 
 <style>
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(180deg, #2b0000, #8b0000, #2b0000);
-    color: white;
+    font-family: 'Poppins', sans-serif;
     text-align: center;
+    color: #ffd700;
+    background: radial-gradient(circle at top, #1a1a00, #000000);
 }
 
-/* Title */
-.title {
-    margin-top: 80px;
-    font-size: 40px;
-    font-weight: bold;
-    color: #ff4d4d;
-    text-shadow: 0 0 20px #ff0000;
+.container {
+    margin: 40px 15px;
+    padding: 30px 20px;
+    border-radius: 25px;
+    background: rgba(255, 215, 0, 0.05);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 40px rgba(255,215,0,0.2);
+    border: 1px solid rgba(255,215,0,0.2);
 }
 
-/* Number */
-.number {
+h1 {
+    font-size: 36px;
+    color: #ffd700;
+    text-shadow: 0 0 15px gold, 0 0 40px rgba(255,215,0,0.8);
+}
+
+.count {
     font-size: 120px;
-    margin: 40px 0;
-    color: #ffd6d6;
+    margin: 30px 0;
+    font-weight: bold;
+    text-shadow: 0 0 20px gold, 0 0 60px rgba(255,215,0,0.7);
 }
 
-/* Button */
-.join-btn {
+.btn {
+    position: relative;
     display: inline-block;
-    padding: 18px 40px;
-    font-size: 20px;
-    color: white;
+    padding: 12px 28px;
     border-radius: 50px;
-    background: linear-gradient(90deg, #ff0000, #ff4d4d);
-    border: 3px solid #ffffff;
+    background: linear-gradient(45deg, #ffd700, #ffcc00);
+    color: black;
+    font-weight: bold;
     text-decoration: none;
-    box-shadow: 0 0 25px rgba(255,0,0,0.7);
-
-    /* Zoom Animation */
-    animation: zoomPulse 1.5s infinite;
+    font-size: 16px;
+    overflow: hidden;
+    border: 2px solid rgba(255,255,255,0.3);
+    box-shadow: 0 0 20px rgba(255,215,0,0.6);
+    transition: 0.3s;
 }
 
-/* Zoom Effect */
-@keyframes zoomPulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(0.92); }
-    100% { transform: scale(1); }
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.8), transparent);
+    transition: 0.6s;
 }
 
-.join-btn:hover {
-    box-shadow: 0 0 40px rgba(255,0,0,1);
+.btn:hover::before {
+    left: 100%;
 }
 
-/* Features */
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px gold, 0 0 80px rgba(255,215,0,0.9);
+}
+
 .features {
-    margin-top: 40px;
+    margin-top: 25px;
     font-size: 18px;
     line-height: 1.8;
-    color: #ffcccc;
+    color: #ffea00;
 }
 
-.features span {
-    display: block;
-}
-
-/* Countdown */
-.countdown {
-    margin-top: 30px;
-    font-size: 18px;
-    color: #ffb3b3;
+@media (max-width: 600px) {
+    .count {
+        font-size: 90px;
+    }
+    h1 {
+        font-size: 28px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="title">VASANT GAVDE</div>
+<div class="container">
+    <!-- ✅ Name Changed -->
+    <h1>VARDAAN CRICKET</h1>
 
-<div class="number" id="number">10</div>
+    <div class="count">9</div>
 
-<a href="https://t.me/+140fCOvn_1IzZmM1" class="join-btn">
-    JOIN TELEGRAM CHANNEL
-</a>
+    <a href="https://t.me/+MVPtxvLy37NiZWY9" class="btn"
+       onclick="fbq('track','Lead')">
+       JOIN TELEGRAM CHANNEL
+    </a>
 
-<div class="features">
-    <span>✅ Free Access</span>
-    <span>✅ IPL, T20s, World Cup</span>
-    <span>✅ Join 1000s of fans who watch with clarity, not confusion</span>
+    <div class="features">
+        ✅ Free Access <br>
+        ✅ IPL, T20s, World Cup <br>
+        ✅ Join 1000s of fans who watch with clarity, not confusion
+    </div>
 </div>
-
-<div class="countdown" id="countdown">
-    Redirecting in 10 seconds...
-</div>
-
-<script>
-let time = 10;
-let countdownEl = document.getElementById("countdown");
-let numberEl = document.getElementById("number");
-
-let timer = setInterval(() => {
-    time--;
-    countdownEl.innerText = "Redirecting in " + time + " seconds...";
-    numberEl.innerText = time;
-
-    if (time <= 0) {
-        clearInterval(timer);
-        window.location.href = "https://t.me/+140fCOvn_1IzZmM1";
-    }
-}, 1000);
-</script>
 
 </body>
 </html>
