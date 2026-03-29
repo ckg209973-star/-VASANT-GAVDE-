@@ -5,126 +5,201 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VARDAAN CRICKET</title>
 
-<!-- ✅ Meta Pixel -->
+<!-- Facebook Pixel -->
 <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+!function(f,b,e,v,n,t,s){
+if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
 n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
+s.parentNode.insertBefore(t,s)
+}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
-fbq('init', '1622227439023483');
+fbq('init', '1622227439023483'); 
 fbq('track', 'PageView');
 </script>
 
 <style>
 body {
     margin: 0;
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
-    color: #ffd700;
-    background: radial-gradient(circle at top, #1a1a00, #000000);
+    padding: 0;
+    font-family: Arial;
+    overflow: hidden;
+    background: black;
 }
 
+/* Particles Canvas */
+#particles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+/* Main Box */
 .container {
-    margin: 40px 15px;
-    padding: 30px 20px;
-    border-radius: 25px;
-    background: rgba(255, 215, 0, 0.05);
-    backdrop-filter: blur(15px);
-    box-shadow: 0 0 40px rgba(255,215,0,0.2);
-    border: 1px solid rgba(255,215,0,0.2);
-}
-
-h1 {
-    font-size: 36px;
-    color: #ffd700;
-    text-shadow: 0 0 15px gold, 0 0 40px rgba(255,215,0,0.8);
-}
-
-.count {
-    font-size: 120px;
-    margin: 30px 0;
-    font-weight: bold;
-    text-shadow: 0 0 20px gold, 0 0 60px rgba(255,215,0,0.7);
-}
-
-.btn {
     position: relative;
-    display: inline-block;
-    padding: 12px 28px;
+    z-index: 2;
+    width: 90%;
+    max-width: 360px;
+    padding: 25px;
+    border-radius: 25px;
+    text-align: center;
+    backdrop-filter: blur(12px);
+    background: rgba(20,0,0,0.6);
+    border: 1px solid rgba(255,0,0,0.4);
+    box-shadow: 0 0 40px rgba(255,0,0,0.6);
+}
+
+/* Title */
+.title {
+    font-size: 30px;
+    color: #ffd700;
+    text-shadow: 0 0 15px #ffd700, 0 0 35px red;
+}
+
+/* Countdown */
+.countdown {
+    font-size: 85px;
+    color: #ffcc00;
+    margin: 15px 0;
+    text-shadow: 0 0 30px yellow, 0 0 60px red;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Progress */
+.progress {
+    height: 6px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, red, yellow);
+    animation: progressAnim 20s linear forwards;
+}
+
+@keyframes progressAnim {
+    from { width: 100%; }
+    to { width: 0%; }
+}
+
+/* Button */
+.btn {
+    margin-top: 20px;
+    padding: 12px 25px;
     border-radius: 50px;
-    background: linear-gradient(45deg, #ffd700, #ffcc00);
+    background: linear-gradient(45deg, red, yellow);
     color: black;
     font-weight: bold;
     text-decoration: none;
-    font-size: 16px;
-    overflow: hidden;
-    border: 2px solid rgba(255,255,255,0.3);
-    box-shadow: 0 0 20px rgba(255,215,0,0.6);
+    display: inline-block;
+    transform: scale(0.9);
+    box-shadow: 0 0 25px red;
     transition: 0.3s;
 }
 
-.btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.8), transparent);
-    transition: 0.6s;
-}
-
-.btn:hover::before {
-    left: 100%;
-}
-
 .btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 40px gold, 0 0 80px rgba(255,215,0,0.9);
+    transform: scale(1);
+    box-shadow: 0 0 50px yellow, 0 0 70px red;
 }
 
+/* Text */
 .features {
-    margin-top: 25px;
-    font-size: 18px;
-    line-height: 1.8;
-    color: #ffea00;
-}
-
-@media (max-width: 600px) {
-    .count {
-        font-size: 90px;
-    }
-    h1 {
-        font-size: 28px;
-    }
+    margin-top: 20px;
+    color: #ffd700;
+    text-align: left;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-    <!-- ✅ Name Changed -->
-    <h1>VARDAAN CRICKET</h1>
+<canvas id="particles"></canvas>
 
-    <div class="count">9</div>
+<div class="container">
+    <div class="title">VARDAAN CRICKET</div>
+
+    <div class="countdown" id="count">20</div>
+
+    <div class="progress">
+        <div class="progress-bar"></div>
+    </div>
 
     <a href="https://t.me/+MVPtxvLy37NiZWY9" class="btn"
        onclick="fbq('track','Lead')">
-       JOIN TELEGRAM CHANNEL
+        JOIN TELEGRAM CHANNEL
     </a>
 
     <div class="features">
-        ✅ Free Access <br>
-        ✅ IPL, T20s, World Cup <br>
-        ✅ Join 1000s of fans who watch with clarity, not confusion
+        <p>✅ Free Access</p>
+        <p>✅ IPL, T20s, World Cup</p>
+        <p>✅ Join 1000s of fans</p>
     </div>
 </div>
 
-</body>
+<script>
+/* Countdown */
+let time = 20;
+let el = document.getElementById("count");
+
+let timer = setInterval(() => {
+    time--;
+    el.innerText = time;
+
+    if(time <= 0){
+        clearInterval(timer);
+    }
+}, 1000);
+
+/* Particles Animation */
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for(let i=0;i<80;i++){
+    particles.push({
+        x: Math.random()*canvas.width,
+        y: Math.random()*canvas.height,
+        size: Math.random()*2,
+        speedY: Math.random()*1+0.5
+    });
+}
+
+function animate(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    ctx.fillStyle = "rgba(255,215,0,0.7)";
+
+    particles.forEach(p=>{
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+        ctx.fill();
+
+        p.y += p.speedY;
+
+        if(p.y > canvas.height){
+            p.y = 0;
+            p.x = Math.random()*canvas.width;
+        }
+    });
+
+    requestAnimationFrame(animate);
+}
+
+animate();
+</script></body>
 </html>
