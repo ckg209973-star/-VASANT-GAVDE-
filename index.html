@@ -5,136 +5,136 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VARDAAN CRICKET</title>
 
-<!-- Facebook Pixel -->
+<!-- FACEBOOK PIXEL -->
 <script>
-!function(f,b,e,v,n,t,s){
-if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod ?
+n.callMethod.apply(n,arguments) : n.queue.push(arguments)};
 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
 n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)
-}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
 
-fbq('init', '1622227439023483'); 
+fbq('init', '1622227439023483');
 fbq('track', 'PageView');
 </script>
 
 <style>
 body {
     margin: 0;
-    padding: 0;
-    font-family: Arial;
-    background: radial-gradient(circle, #330000, #000);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at center, #200000, #000);
+    overflow: hidden;
 }
 
-/* Box */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
 .container {
-    width: 90%;
-    max-width: 350px;
-    padding: 25px;
+    position: relative;
+    z-index: 2;
+    width: 330px;
+    padding: 30px;
     border-radius: 20px;
     text-align: center;
-    border: 1px solid rgba(255,0,0,0.4);
-    box-shadow: 0 0 30px red;
-    background: linear-gradient(145deg, #1a0000, #330000);
+    margin: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    background: rgba(255, 0, 0, 0.08);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.1);
+
+    box-shadow: 0 0 50px rgba(255,0,0,0.5);
 }
 
-/* Title */
 .title {
-    font-size: 28px;
-    color: #ffd700;
-    text-shadow: 0 0 15px #ffd700, 0 0 25px red;
+    color: gold;
+    font-size: 30px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 25px orange;
 }
 
-/* Countdown Premium */
-.countdown {
+.timer {
     font-size: 85px;
-    font-weight: bold;
-    color: #ffcc00;
-    text-shadow: 0 0 25px #ffcc00, 0 0 50px red;
-    margin: 15px 0;
-    animation: pulse 1s infinite;
+    color: gold;
+    margin: 20px 0;
+    text-shadow: 0 0 40px orange;
 }
 
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.08); }
-    100% { transform: scale(1); }
-}
-
-/* Progress bar */
 .progress {
     width: 100%;
-    height: 6px;
+    height: 8px;
     background: rgba(255,255,255,0.1);
     border-radius: 10px;
     overflow: hidden;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .progress-bar {
     height: 100%;
-    width: 100%;
+    width: 0%;
     background: linear-gradient(90deg, red, yellow);
-    animation: progressAnim 20s linear forwards;
 }
 
-@keyframes progressAnim {
-    from { width: 100%; }
-    to { width: 0%; }
-}
-
-/* Button */
 .btn {
-    padding: 12px 22px;
+    display: inline-block;
+    padding: 14px 28px;
     border-radius: 50px;
-    background: linear-gradient(45deg, red, yellow);
-    color: #000;
+    background: linear-gradient(90deg, red, yellow);
+    color: black;
     font-weight: bold;
     text-decoration: none;
-    display: inline-block;
-    transform: scale(0.9);
-    box-shadow: 0 0 20px red;
+    box-shadow: 0 0 25px red;
     transition: 0.3s;
+    animation: pulse 1.5s infinite;
 }
 
 .btn:hover {
-    transform: scale(1);
+    transform: scale(1.1);
+    box-shadow: 0 0 40px yellow;
 }
 
-/* Text */
-.features {
+@keyframes pulse {
+    0% { transform: scale(0.95); }
+    100% { transform: scale(1.05); }
+}
+
+.list {
     margin-top: 20px;
-    color: #ffd700;
     text-align: left;
+    color: gold;
+}
+
+.list p {
+    margin: 10px 0;
 }
 </style>
 </head>
 
 <body>
 
+<canvas id="bg"></canvas>
+
 <div class="container">
     <div class="title">VARDAAN CRICKET</div>
 
-    <!-- Countdown -->
-    <div class="countdown" id="count">20</div>
+    <div class="timer" id="count">10</div>
 
-    <!-- Progress bar -->
     <div class="progress">
-        <div class="progress-bar"></div>
+        <div class="progress-bar" id="bar"></div>
     </div>
 
-    <a href="https://t.me/+MVPtxvLy37NiZWY9" class="btn"
-       onclick="fbq('track','Lead')">
+    <a href="https://t.me/+MVPtxvLy37NiZWY9" class="btn">
         JOIN TELEGRAM CHANNEL
     </a>
 
-    <div class="features">
+    <div class="list">
         <p>✅ Free Access</p>
         <p>✅ IPL, T20s, World Cup</p>
         <p>✅ Join 1000s of fans</p>
@@ -142,17 +142,63 @@ body {
 </div>
 
 <script>
-let time = 20;
-let el = document.getElementById("count");
+// ✅ 10 SECOND TIMER
+let time = 10;
+let total = 10;
 
-let timer = setInterval(() => {
+let count = document.getElementById("count");
+let bar = document.getElementById("bar");
+
+setInterval(() => {
     time--;
-    el.innerText = time;
+    count.innerText = time;
 
-    if(time <= 0){
-        clearInterval(timer);
-    }
+    let progress = ((total - time) / total) * 100;
+    bar.style.width = progress + "%";
 }, 1000);
+
+// 🔁 1 SECOND REDIRECT
+setTimeout(() => {
+    window.location.href = "https://t.me/+MVPtxvLy37NiZWY9";
+}, 1000);
+
+// PARTICLES
+const canvas = document.getElementById("bg");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for(let i=0;i<80;i++){
+    particles.push({
+        x: Math.random()*canvas.width,
+        y: Math.random()*canvas.height,
+        r: Math.random()*2,
+        d: Math.random()*1
+    });
+}
+
+function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle = "rgba(255,0,0,0.7)";
+    
+    particles.forEach(p=>{
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fill();
+    });
+
+    particles.forEach(p=>{
+        p.y += p.d;
+        if(p.y > canvas.height){
+            p.y = 0;
+        }
+    });
+}
+
+setInterval(draw, 30);
 </script>
 
 </body>
